@@ -1,0 +1,61 @@
+﻿@model List<Car>
+
+<h2>Lista Samochodów</h2>
+<a class="btn btn-primary" asp-controller="Car" asp-action="Create">Dodaj Car</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Producent</th>
+            <th>Pojemność silnika</th>
+            <th>Moc</th>
+            <th>Rodzaj silnika</th>
+            <th>Nr rejestracyjny</th>
+            <th>Właściciel</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Car item in @Model)
+        {
+
+            <tr>
+                <td>
+                    @item.Model
+                </td>
+                <td>
+                    @item.Manufacturer
+                </td>
+                <td>
+                    @item.EngineCapacity
+
+                </td>
+
+                <td>
+                    @item.Power
+                </td>
+
+
+                <td>
+                    @item.EngineType
+                </td>
+                <td>
+                    @item.RegistrationNumber
+                </td>
+
+                <td>
+                    @item.Owner
+                </td>
+
+
+
+                <td>
+                    <a asp-action="Update" asp-route-id="@item.Id">Edytuj</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
