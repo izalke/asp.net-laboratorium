@@ -26,7 +26,7 @@ namespace Laboratorium3.Controllers
         [HttpPost]
         public IActionResult Create(Contact model)
         {
-            if(ModelState.IsValid) // nie ma jawnego powiązania ale sprawdza czy model istenieje
+            if(ModelState.IsValid) 
             {
                 _contactService.Add(model);
                 // zapamietaj kontakt

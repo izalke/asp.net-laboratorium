@@ -7,7 +7,7 @@
 <h1>Dodaj kontakt</h1>
 <form asp-controller="Contact" asp-action="Create" method="post">
     <label asp-for="Name"></label>
-    <input class="form-control" asp-for="Name"/>
+    <input class="form-control" asp-for="Name" />
     <span class="text-danger" asp-validation-for="Name"></span>
 
     <label asp-for="Email"></label>
@@ -21,6 +21,14 @@
     <label asp-for="Birth"></label>
     <input class="form-control" asp-for="Birth" />
     <span class="text-danger" asp-validation-for="Birth"></span>
+
+    <div>
+        <label asp-for="Priority"></label>
+        <div>
+            <span asp-validation-for="Priority" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()"></select>
+    </div>
 
     <button type="submit">Dodaj</button>
 
